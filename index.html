@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA MUNDA UI - Comprehensive UI Components Showcase</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="BCA MUNDA UI - A comprehensive showcase of modern UI components and animations">
+    <meta name="keywords" content="UI components, CSS animations, JavaScript effects, web design, frontend">
+    <meta name="author" content="Paras Gupta">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="BCA MUNDA UI - Comprehensive UI Components Showcase">
+    <meta property="og:description" content="A comprehensive showcase of modern UI components and animations">
+    <meta property="og:type" content="website">
+    
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Component Specific Styles - These would typically be in separate files */
+        /* Among Us Button */
+        .among-us-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 10px;
+            color: white;
+            text-shadow: 2px 2px rgb(116, 116, 116);
+            text-transform: uppercase;
+            cursor: pointer;
+            border: solid 2px black;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 17px;
+            background-color: hsl(49deg 98% 60%);
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .among-us-btn:active {
+            transform: scale(0.9);
+            transition: all 100ms ease;
+        }
+
+        .among-us-btn svg {
+            transition: all 0.5s ease;
+            z-index: 2;
+            width: 36px;
+            height: 36px;
+        }
+
+        .play-text {
+            transition: all 0.5s ease;
+            transition-delay: 300ms;
+        }
+
+        .among-us-btn:hover svg {
+            transform: scale(3) translate(50%);
+        }
+
+        .now-text {
+            position: absolute;
+            left: 0;
+            transform: translateX(-100%);
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+
+        .among-us-btn:hover .now-text {
+            transform: translateX(10px);
+            transition-delay: 300ms;
+        }
+
+        .among-us-btn:hover .play-text {
+            transform: translateX(200%);
+            transition-delay: 300ms;
+        }
+
+        /* Animated Nav Bar */
+        .animated-nav ul {
+            display: inline-grid;
+            grid-auto-flow: column;
+            grid-gap: 24px;
+            justify-items: center;
+            list-style: none;
+        }
+
+        .animated-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .animated-nav a:hover {
+            box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
+        }
+
+        .wave-animation {
+            display: inline-block;
+            animation: wave-animation 0.3s infinite;
+        }
+
+        @keyframes wave-animation {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(20deg);
+            }
+            75% {
+                transform: rotate(-15deg);
+            }
+        }
+
+        /* Card Hover Effect */
+        .sample-card {
+            background-color: hsl(220, 6%, 10%);
+            padding: 120px 30px 30px;
+            position: relative;
+            z-index: 1;
+            max-width: 250px;
+            --color: #AA96DA;
+        }
+
+        .sample-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: var(--color);
+            z-index: -1;
+            clip-path: circle(40px at 70px 70px);
+            transition: clip-path 1s ease;
+        }
+
+        .sample-card:hover::before {
+            clip-path: circle(100%);
+        }
+
+        .sample-card span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 80px;
+            width: 80px;
+            font-size: 50px;
+            font-weight: bold;
+            transform: translate(30px, 30px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(0, 0%, 0%);
+            transition: transform 1s ease;
+        }
+
+        .sample-card:hover span {
+            transform: translate(0, 30px);
+        }
+
+        .sample-card h3 {
+            font-size: 20px;
+            color: hsl(0, 0%, 100%);
+            font-weight: 600;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .sample-card p {
+            color: hsl(0, 0%, 85%);
+            line-height: 1.5;
+            font-size: 0.8rem;
+        }
+
+        /* Toggle Switch */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Button Hover Effect */
+        .hover-btn {
+            padding: 15px 30px;
+            background: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .hover-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(108, 92, 231, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .hover-btn:hover::before {
+            left: 100%;
+        }
+
+        .hover-btn:hover {
+            background: var(--primary-color);
+            box-shadow: var(--glow);
+        }
+
+        /* Bouncy Toggle Switch */
+        .bouncy-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .bouncy-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .bouncy-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .bouncy-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        input:checked + .bouncy-slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .bouncy-slider:before {
+            transform: translateX(26px);
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(26px) scale(1); }
+            50% { transform: translateX(26px) scale(1.2); }
+        }
+
+        /* Shaking Button */
+        .shake-btn {
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .shake-btn:hover {
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Gradient Underglow */
+        .gradient-underglow {
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-underglow::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                rgba(168, 239, 255, 1), 
+                transparent 30%
+            );
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+
+        .gradient-underglow::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #111;
+            border-radius: 7px;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Text Reveal Effect */
+        .text-reveal {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .text-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: reveal 2s ease-in-out infinite;
+        }
+
+        .text-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes reveal {
+            0% { transform: scaleX(0); }
+            50% { transform: scaleX(1); }
+            100% { transform: scaleX(0); }
+        }
+
+        /* Image Hover Effect */
+        .image-container {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(108, 92, 231, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        /* Skeleton Loading */
+        .skeleton {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(90deg, #2a2a3a, #3a3a4a, #2a2a3a);
+            background-size: 200% 100%;
+            animation: loading 1.5s ease-in-out infinite;
+            border-radius: 8px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Notification Bell */
+        .bell {
+            position: relative;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .bell::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 12px;
+            height: 12px;
+            background: #ff4757;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+        }
+
+        /* Tooltip */
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Cursor Effect */
+        .cursor-effect {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .cursor-effect:hover::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--primary-color);
+            opacity: 0.2;
+            animation: ripple 1s infinite;
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.2; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">BCA MUNDA UI</a>
+        <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+    </header>
+
+    <nav>
+        <div class="nav-categories">
+            <a href="#" class="nav-category active" data-category="all">All Components</a>
+            <a href="#" class="nav-category" data-category="buttons">Buttons</a>
+            <a href="#" class="nav-category" data-category="navigation">Navigation</a>
+            <a href="#" class="nav-category" data-category="cards">Cards</a>
+            <a href="#" class="nav-category" data-category="forms">Forms & Inputs</a>
+            <a href="#" class="nav-category" data-category="loaders">Loaders & Animations</a>
+            <a href="#" class="nav-category" data-category="effects">Text Effects</a>
+            <a href="#" class="nav-category" data-category="other">Other</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="section-title">UI Components Showcase</h1>
+        <p style="text-align: center; color: var(--gray-text); max-width: 800px; margin: 0 auto 2rem;">
+            Explore a comprehensive collection of modern UI components and animations. Each component demonstrates creative design techniques using HTML, CSS, and JavaScript.
+        </p>
+
+        <div class="components-grid">
+            <!-- Among Us Button -->
+            <div class="component-card" data-category="buttons">
+                <h2 class="component-title">🎮 Among Us Button</h2>
+                <div class="component-description">
+                    Interactive button with animated character and hover effects.
+                </div>
+                <div class="component-preview">
+                    <button class="among-us-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+                            <rect width="36" height="36" x="0" y="0" fill="#fdd835"></rect>
+                            <path fill="#e53935" d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z"></path>
+                        </svg>
+                        <span class="now-text">now!</span>
+                        <span class="play-text">play</span>
+                    </button>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Animated Nav Bar -->
+            <div class="component-card" data-category="navigation">
+                <h2 class="component-title">🧭 Animated Navigation</h2>
+                <div class="component-description">
+                    Navigation bar with hover effects and wave animations.
+                </div>
+                <div class="component-preview">
+                    <div class="animated-nav">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><p class="wave-animation">👋</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Card Hover Effect -->
+            <div class="component-card" data-category="cards">
+                <h2 class="component-title">🃏 Card Hover Effect</h2>
+                <div class="component-description">
+                    Cards with color transition and reveal animations on hover.
+                </div>
+                <div class="component-preview">
+                    <div class="sample-card">
+                        <span>1</span>
+                        <h3>Sample Card</h3>
+                        <p>Hover to see the color transition effect.</p>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Toggle Switch -->
+            <div class="component-card" data-category="forms">
+                <h2 class="component-title">🎚️ Toggle Switch</h2>
+                <div class="component-description">
+                    Custom toggle switch with smooth sliding animation.
+                </div>
+                <div class="component-preview">
+                    <div class="toggle-container">
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Toggle Me</span>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="component-card" data-category="loaders">
+                <h2 class="component-title">🌀 Loading Spinner</h2>
+                <div class="component-description">
+                    Simple yet elegant rotating loading indicator.
+                </div>
+                <div class="component-preview">
+                    <div class="spinner"></div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Button Hover Effect -->
+            <div class="component-card" data-category="buttons">
+                <h2 class="component-title">🖱️ Hover Button</h2>
+                <div class="component-description">
+                    Button with gradient shine effect on hover.
+                </div>
+                <div class="component-preview">
+                    <button class="hover-btn">Hover Me</button>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Bouncy Toggle Switch -->
+            <div class="component-card" data-category="forms">
+                <h2 class="component-title">🏀 Bouncy Toggle</h2>
+                <div class="component-description">
+                    Toggle switch with bouncy animation effect.
+                </div>
+                <div class="component-preview">
+                    <div class="toggle-container">
+                        <label class="bouncy-toggle">
+                            <input type="checkbox">
+                            <span class="bouncy-slider"></span>
+                        </label>
+                        <span>Bouncy</span>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Shaking Button -->
+            <div class="component-card" data-category="buttons">
+                <h2 class="component-title">🚨 Shaking Button</h2>
+                <div class="component-description">
+                    Button with attention-grabbing shake animation on hover.
+                </div>
+                <div class="component-preview">
+                    <button class="shake-btn">Shake Me</button>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Animated Gradient Underglow -->
+            <div class="component-card" data-category="effects">
+                <h2 class="component-title">🌈 Gradient Underglow</h2>
+                <div class="component-description">
+                    Container with animated gradient border effect.
+                </div>
+                <div class="component-preview">
+                    <div class="gradient-underglow">
+                        <p>Gradient Border Effect</p>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Text Reveal Effect -->
+            <div class="component-card" data-category="effects">
+                <h2 class="component-title">👁️ Text Reveal</h2>
+                <div class="component-description">
+                    Text with reveal animation effect.
+                </div>
+                <div class="component-preview">
+                    <div class="text-reveal">
+                        <span class="text-content">Reveal Text</span>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Image Hover Effect -->
+            <div class="component-card" data-category="cards">
+                <h2 class="component-title">🖼️ Image Hover</h2>
+                <div class="component-description">
+                    Image with zoom and overlay effects on hover.
+                </div>
+                <div class="component-preview">
+                    <div class="image-container">
+                        <div style="background: #6c5ce7; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+                            Sample Image
+                        </div>
+                        <div class="image-overlay">
+                            <span>View</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Skeleton Loading -->
+            <div class="component-card" data-category="loaders">
+                <h2 class="component-title">🦴 Skeleton Loading</h2>
+                <div class="component-description">
+                    Content loading placeholder with animation.
+                </div>
+                <div class="component-preview">
+                    <div class="skeleton"></div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Notification Bell -->
+            <div class="component-card" data-category="other">
+                <h2 class="component-title">🔔 Notification Bell</h2>
+                <div class="component-description">
+                    Animated notification indicator.
+                </div>
+                <div class="component-preview">
+                    <div class="bell">🔔</div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Tooltip -->
+            <div class="component-card" data-category="other">
+                <h2 class="component-title">💬 Custom Tooltip</h2>
+                <div class="component-description">
+                    Custom styled tooltip on hover.
+                </div>
+                <div class="component-preview">
+                    <div class="tooltip-container">
+                        Hover me
+                        <span class="tooltip-text">Tooltip text</span>
+                    </div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+
+            <!-- Cursor Effect -->
+            <div class="component-card" data-category="other">
+                <h2 class="component-title">🎯 Cursor Effect</h2>
+                <div class="component-description">
+                    Interactive cursor effect on hover.
+                </div>
+                <div class="component-preview">
+                    <div class="cursor-effect">Click</div>
+                </div>
+                <button class="view-code-btn">View Code</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h2>BCA MUNDA UI</h2>
+            <p style="color: var(--gray-text); max-width: 600px; margin: 1rem auto;">
+                A comprehensive showcase of modern UI components and animations created with HTML, CSS, and JavaScript.
+            </p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">📘 Facebook</a>
+                <a href="#" class="social-link">📷 Instagram</a>
+                <a href="#" class="social-link">🐦 Twitter</a>
+                <a href="#" class="social-link">💼 LinkedIn</a>
+            </div>
+            
+            <p class="copyright">
+                Created with ❤️ by Paras Gupta | BCA MUNDA UI © 2025
+            </p>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
+    
+    <script>
+        // Additional component-specific JavaScript
+        // In a full implementation, this would be in the external script.js file
+        
+        // Button interactions
+        document.querySelectorAll('.among-us-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                // Hover effect is handled by CSS
+            });
+        });
+        
+        document.querySelectorAll('.sample-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Hover effect is handled by CSS
+            });
+        });
+        
+        // View code buttons
+        document.querySelectorAll('.view-code-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('In a full implementation, this would show the source code for the component.');
+            });
+        });
+        
+        // Toggle switches
+        document.querySelectorAll('.toggle-switch input, .bouncy-toggle input').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                console.log('Toggle switched:', this.checked);
+            });
+        });
+        
+        // Shaking button
+        document.querySelectorAll('.shake-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                // Shake animation is handled by CSS
+            });
+        });
+        
+        // Tooltip
+        document.querySelectorAll('.tooltip-container').forEach(tooltip => {
+            tooltip.addEventListener('mouseenter', function() {
+                // Tooltip is handled by CSS
+            });
+        });
+        
+        // Cursor effect
+        document.querySelectorAll('.cursor-effect').forEach(cursor => {
+            cursor.addEventListener('mouseenter', function() {
+                // Ripple effect is handled by CSS
+            });
+        });
+        
+        // Initialize any components that need it
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('BCA MUNDA UI Components Loaded');
+        });
+    </script>
+</body>
+</html>

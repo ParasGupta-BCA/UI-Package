@@ -1,0 +1,274 @@
+/* 
+  BCA MUNDA UI - Main Stylesheet
+  This file demonstrates how styles could be organized separately
+*/
+
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a29bfe;
+  --dark-bg: #0c0c14;
+  --darker-bg: #080810;
+  --light-text: #f5f6fa;
+  --gray-text: #b2bec3;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --glow: 0 0 15px rgba(108, 92, 231, 0.5);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--dark-bg);
+  color: var(--light-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Theme Variations */
+body.light-theme {
+  --dark-bg: #f5f6fa;
+  --darker-bg: #dcdde1;
+  --light-text: #2f3640;
+  --gray-text: #718093;
+}
+
+/* Header */
+header {
+  background: var(--darker-bg);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+}
+
+/* Navigation */
+nav {
+  background: var(--darker-bg);
+  padding: 1rem;
+  position: sticky;
+  top: 70px;
+  z-index: 99;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.nav-categories {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.nav-category {
+  background: rgba(108, 92, 231, 0.1);
+  color: var(--light-text);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.nav-category:hover, .nav-category.active {
+  background: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+main {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.component-card {
+  background: var(--darker-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.component-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow);
+  border-color: var(--primary-color);
+}
+
+.component-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.component-preview {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.component-description {
+  color: var(--gray-text);
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.view-code-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view-code-btn:hover {
+  background: #5d4de0;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  background: var(--darker-bg);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.social-link {
+  color: var(--light-text);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  color: var(--gray-text);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+  }
+  
+  .nav-categories {
+      flex-wrap: wrap;
+  }
+  
+  main {
+      padding: 0 1rem;
+  }
+  
+  .components-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* 
+  Component-specific styles would be included here or in separate files
+  For example:
+  - buttons.css
+  - cards.css
+  - navigation.css
+  - forms.css
+  - animations.css
+*/
