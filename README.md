@@ -1,4 +1,4 @@
-# BCA MUNDA UI - Comprehensive UI Components Showcase
+# Comprehensive UI Components Showcase
 
 A comprehensive collection of modern UI components and animations created with HTML, CSS, and JavaScript. This project showcases over 100+ UI elements organized in a single, easy-to-navigate interface.
 
