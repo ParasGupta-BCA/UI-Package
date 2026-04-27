@@ -4,7 +4,7 @@ A comprehensive collection of modern UI components and animations created with H
 
 ## 🎨 Overview
 
-This repository contains a unified showcase of all UI components from the BCA MUNDA UI project. Each component demonstrates creative design techniques using pure HTML, CSS, and JavaScript without any external frameworks.
+This repository contains a unified showcase of all UI components from the UI project. Each component demonstrates creative design techniques using pure HTML, CSS, and JavaScript without any external frameworks.
 
 ## 🚀 Features
 
