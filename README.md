@@ -90,8 +90,7 @@ This repository contains a unified showcase of all UI components from the BCA MU
 
 **Paras Gupta**
 
-- Website: [Your Website]
-- GitHub: [@parasgupta] (if applicable)
+- GitHub: [@ParasGupta-BCA]
 
 ## 📄 License
 
